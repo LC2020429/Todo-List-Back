@@ -24,7 +24,7 @@ export const connectionDB = async() =>{
             console.log((`MOngoSb | Disconnected to mongo DB`))
         })
         await mongoose.connect(process.env.URI_DATABASE,{
-            serverSelectionTimeoutMS: 2000,
+            serverSelectionTimeoutMS: 150000,
             maxPoolSize:50
         })
     } catch (er) {
