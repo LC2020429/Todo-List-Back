@@ -7,7 +7,7 @@ import express from "express";
 import { connectionDB } from "./mongo.js";
 import todoRoutes from "../src/todo/todo.routes.js";
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://todo-list-2e0f8.web.app"];
 
 const corsOptions = {
   origin: allowedOrigins,
