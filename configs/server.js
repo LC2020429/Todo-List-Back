@@ -31,7 +31,7 @@ const middlewares = (app) => {
 };
 
 const routes = (app) => {
-  app.use("/api/to-do", todoRoutes);
+  app.use("/todo-api/to-do", todoRoutes);
 };
 
 const connectionMongo = async () => {
