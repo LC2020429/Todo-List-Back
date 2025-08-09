@@ -7,11 +7,7 @@ import express from "express";
 import { connectionDB } from "./mongo.js";
 import todoRoutes from "../src/todo/todo.routes.js";
 
-
-const allowedOrigins = [
-  "http://localhost:5173",
-];
-
+const allowedOrigins = ["http://localhost:5173"];
 
 const corsOptions = {
   origin: allowedOrigins,
@@ -19,7 +15,7 @@ const corsOptions = {
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   preflightContinue: false,
-  optionsSuccessStatus: 204
+  optionsSuccessStatus: 204,
 };
 
 const middlewares = (app) => {
@@ -51,7 +47,10 @@ export const initServer = async () => {
     routes(app);
     app.listen(process.env.PORT);
     const elapsedTime = Date.now() - timeInit;
-    console.log(`Server running on port ${process.env.PORT} (${elapsedTime}ms)`);
+    console.log(
+      `Server running on port ${process.env.PORT} (${elapsedTime}ms)`
+    );
+    return app;
   } catch (error) {
     console.log(`Server failed to start: ${error}`);
   }
